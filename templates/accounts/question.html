@@ -1,0 +1,59 @@
+{% extends 'accounts/wall.html' %} {% load static %} 
+{% block icerik.super %}
+
+
+<div class="col-md-3 static">
+    <div class="chat-block" style="border:1px solid;">
+        <div class="tite">Chat online</div>
+        <ul class="online-users list-inline">
+          <li><a href="newsfeed-messages.html" title="Linda Lohan"><img src="{% static 'images/users/user-2.jpg' %}" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Sophia Lee"><img src="{% static 'images/users/user-3.jpg' %}" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="John Doe"><img src="{% static 'images/users/user-4.jpg' %}" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Alexis Clark"><img src="{% static 'images/users/user-5.jpg' %}" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="James Carter"><img src="{% static 'images/users/user-6.jpg' %}" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Robert Cook"><img src="{% static 'images/users/user-7.jpg' %}" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Richard Bell"><img src="{% static 'images/users/user-8.jpg' %}" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Anna Young"><img src="{% static 'images/users/user-9.jpg' %}" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Julia Cox"><img src="{% static 'images/users/user-10.jpg' %}" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+        </ul>
+      </div>
+</div>
+<div class="col-md-6">
+
+
+
+    <!-- Post Content
+    ================================================= -->
+
+    <div class="post-content">
+        <div class="post-container">
+            <h3>{{soru.question}}?</h3>
+            <div class="line-divider"></div>
+            <div class="row">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="col-xs-6"><a href=""><button name="{{cevaplar.0}}" type="submit" class="btn btn-success btn-block">{{cevaplar.0}}</button>
+                            </a></div>
+                    <div class="col-xs-6"><a href=""><button name="{{cevaplar.1}}" type="submit" class="btn btn-success btn-block">{{cevaplar.1}}</button>
+                            </a></div>
+                    <br><br><br>
+                    <div class="col-xs-6"><a href=""><button name="{{cevaplar.2}}" type="submit" class="btn btn-success btn-block">{{cevaplar.2}}</button>
+                            </a></div>
+                    <div class="col-xs-6"><a href=""><button name="{{cevaplar.3}}" type="submit" class="btn btn-success btn-block">{{cevaplar.3}}</button>
+                            </a></div>
+                            
+                    <a data-action="like"  href="{{ soru.get_like_url }}" data-likes="{{ soru.likes.count }}" data-href="{{ soru.get_api_like_url }}" class="like-button" class="btn text-green">Like:{{soru.likes.count}}</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock icerik.super %}

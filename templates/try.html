@@ -1,0 +1,31 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+
+{% block icerik %}
+
+<h1></h1>
+    {{user.username}}
+    {{user}}
+    <a href="{% url 'accounts:logout'  %}">Çıkış Yap</a>
+
+    <h1>questions</h1>
+    
+    {% for question in questions %}
+        <form method="POST">
+            {% csrf_token %}
+            <br>
+            <p>Yazar:{{question.author}}</p>
+            <br>
+            <p>Soru:{{question.question}}</p>
+            <br>
+            <input type="submit" class="btn btn-primary" value="{{question.answer_one}}" name="cevap1">
+            <h2><a href="{% url 'accounts:question' question.id %}">Soruyu Cevapla </a>
+            <p>Soruyu Cevapla:</p>
+        </form>
+        {% endfor %}
+        
+
+{% endblock icerik %}
+    
+    

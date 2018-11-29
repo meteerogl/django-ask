@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <title>Register</title>
+    <style>
+      .solyazı
+      {
+        color: white
+      }
+      h1{
+        color: white;
+      }
+      
+    </style>
+</head>
+<body>
+    <!-- Full Page Intro -->
+  <div class="view full-page-intro" style="background-image:  url('https://wallpaper.wiki/wp-content/uploads/2017/05/Minimalistic-dark-gray-vectors-mustache-vector-art-1920x1200.jpg')  ; background-repeat: no-repeat; background-size: cover;">
+    <br><br><br><br>
+    <!-- Mask & flexbox options-->
+    <div  class="mask rgba-black-light d-flex justify-content-center align-items-center"
+      <!-- Content -->
+      <div class="container">
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+          <!--Grid column-->
+          <div class="col-md-6 mb-4 white-text text-center text-md-left">
+
+            <h1 class=class="solyazı" >Learn Bootstrap 4 with MDB</h1>
+
+            <hr>
+
+            <p>
+              <strong class="solyazı">Best & free guide of responsive web design</strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block">
+              <strong class="solyazı">The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
+                available. Create your own, stunning website.</strong>
+            </p>
+            
+            
+           
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-6 ">
+            <!--Card-->
+            <div class="card">
+              <!--Card content-->
+              <div class="card-body">
+
+                <!-- Form -->
+                <form method="POST">
+                  {% csrf_token %}
+                  <h3 class="dark-grey-text text-center">
+                    <strong>Register:</strong>
+                  </h3>
+                  <hr>
+                  <div class="md-form">
+                      <i class="fa fa-user prefix grey-text"></i>
+                      {{userform.email}}
+                      <br>
+                  </div>
+                  <div class="md-form">
+                    <i class="fa fa-user prefix grey-text"></i>
+                    {{userform.first_name}}
+                    <br>
+                  </div>
+                  <div class="md-form">
+                    
+                  <div class="md-form">
+                    <i class="fa fa-user prefix grey-text"></i>
+                    {{userform.username}}
+                    {{userform.username.errors}}
+                    <br>
+                  </div>
+                  <div class="md-form">
+                    <i class="fa fa-user prefix grey-text"></i>
+                    {{userform.password}}
+                    <br>
+                  </div>
+
+
+                  <div class="md-form">
+                    <label for="form3">Birthday:</label>
+                    <i class="fa fa-user prefix grey-text"></i>
+                    {{userprofileform.birthday}}
+                    <br>
+                      
+                  </div>
+                  <br>
+                  <div class="md-form">
+                    <label for="form3">Gender:</label>
+                    <i class="fa fa-user prefix grey-text"></i>
+                      {{userprofileform.gender}}
+                    <br>
+                  </div>
+                  <div class="md-form">
+                    <label for="">language:</label>
+                    <i class="fa fa-user prefix grey-text"></i>
+                    {{userprofileform.language}}
+                    <br>
+                  </div>
+
+                  <div class="text-center">
+                    <button class="btn btn-indigo">Kayıt Ol</button>
+                    <hr>
+                    <fieldset class="form-check">
+                      <input type="checkbox" class="form-check-input" id="checkbox1">
+                      <label for="checkbox1" class="form-check-label dark-grey-text">Subscribe me to the newsletter</label>
+                    </fieldset>
+                  </div>
+                </form>
+                <!-- Form -->
+
+              </div>
+
+              
+
+            </div>
+            <!--/.Card-->
+            
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </div>
+      <!-- Content -->
+
+    </div>
+    <!-- Mask & flexbox options-->
+
+  </div>
+
+
+ 
+  
+
+
+  <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+</body>
+</html>
+    
+    

@@ -1,0 +1,163 @@
+{% extends 'accounts/base.html' %} {% load static %} {% block icerik %}
+
+
+
+<br>
+<div id="page-contents">
+
+  <div class="row">
+    <!-- Newsfeed Common Side Bar Left
+          ================================================= -->
+
+    {% block icerik.super %}
+    <div class="col-md-3 static">
+      <div class="profile-card">
+        <img src="{% static 'images/users/user-1.jpg' %}" alt="user" class="profile-photo" />
+        <h5><a href="{% url 'accounts:account-profile' user %}" class="text-white">{{user}}</a></h5>
+        <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
+      </div>
+      <!--profile card ends-->
+
+      <!--news-feed links ends-->
+      <div class="chat-block" style="border:1px solid;">
+        <div class="title">Chat online</div>
+        <ul class="online-users list-inline">
+          <li><a href="newsfeed-messages.html" title="Linda Lohan"><img src="images/users/user-2.jpg" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Sophia Lee"><img src="images/users/user-3.jpg" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="John Doe"><img src="images/users/user-4.jpg" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Alexis Clark"><img src="images/users/user-5.jpg" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="James Carter"><img src="images/users/user-6.jpg" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Robert Cook"><img src="images/users/user-7.jpg" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Richard Bell"><img src="images/users/user-8.jpg" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Anna Young"><img src="images/users/user-9.jpg" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+          <li><a href="newsfeed-messages.html" title="Julia Cox"><img src="images/users/user-10.jpg" alt="user" class="img-responsive profile-photo"
+              /><span class="online-dot"></span></a></li>
+        </ul>
+      </div>
+      <!--chat block ends-->
+    </div>
+    <div class="col-md-6">
+      <!-- Post Create Box
+            ================================================= -->
+      <div class="create-post">
+        <div class="row">
+          <div class="col-md-7 col-sm-7">
+            <div class="form-group">
+              <img src="{% static 'images/users/user-1.jpg' %}" alt="" class="profile-photo-md" />
+              <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Soru Sor"></textarea>
+            </div>
+          </div>
+          <div class="col-md-5 col-sm-5">
+
+            <button class="btn btn-primary pull-right">SOR</button>
+
+          </div>
+        </div>
+      </div><!-- Post Create Box End-->
+
+      <!-- Post Content
+            ================================================= -->
+
+      {% for question in questions %}
+      <div class="post-content">
+        <div class="post-container">
+          <form method="POST">
+            <img src="{% static 'images/users/user-5.jpg' %}" alt="user" class="profile-photo-md pull-left" />
+            <div class="post-detail">
+              <div class="user-info">
+                <h5><a href="{% url 'user-view' question.author %}" class="profile-link">{{question.author}}</a> <span class="following">{{question.act_deact}}</span></h5>
+                <p class="text-muted">{{question.timestamp}}</p>
+              </div>
+              <div class="reaction">
+                <form method="GET">
+                  <i class="icon ion-thumbsup"></i>
+                  <a data-action="like"  href="{{ question.get_like_url }}" data-likes="{{ question.likes.count }}" data-href="{{ question.get_api_like_url }}" class="like-button" class="btn text-green">{{question.likes.count}}</a>
+                  <a href="" class="btn text-greenxcv"></a>
+                </form>
+              </div>
+
+              <div class="line-divider"></div>
+              <div class="post-text">
+                <h3>
+                  <p>{{question.question}}</p>
+                  </h3>
+                  <div class="line-divider"></div>
+                  <h2><a href="{% url 'accounts:question' question.id %}"><button type="button" class="btn btn-success pull-right">Cevapla</button><br>                      </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      {% endfor %} {% endblock icerik.super %}
+
+    </div>
+
+    <!-- Newsfeed Common Side Bar Right
+          ================================================= -->
+    <div class="col-md-3 static">
+      <div class="suggestions" id="sticky-sidebar" style="border:1px solid;">
+        <h4 class="grey">Who to Follow</h4>
+        <div class="follow-user">
+          <img src="{% static 'images/users/user-11.jpg' %}" alt="" class="profile-photo-sm pull-left" />
+          <div>
+            <h5><a href="timeline.html">Diana Amber</a></h5>
+            <a href="#" class="text-green">Add friend</a>
+          </div>
+        </div>
+        <div class="follow-user">
+          <img src="{% static 'images/users/user-12.jpg' %}" alt="" class="profile-photo-sm pull-left" />
+          <div>
+            <h5><a href="timeline.html">Cris Haris</a></h5>
+            <a href="#" class="text-green">Add friend</a>
+          </div>
+        </div>
+        <div class="follow-user">
+          <img src="{% static 'images/users/user-13.jpg' %}" alt="" class="profile-photo-sm pull-left" />
+          <div>
+            <h5><a href="timeline.html">Brian Walton</a></h5>
+            <a href="#" class="text-green">Add friend</a>
+          </div>
+        </div>
+        <div class="follow-user">
+          <img src="{% static 'images/users/user-14.jpg' %}" alt="" class="profile-photo-sm pull-left" />
+          <div>
+            <h5><a href="timeline.html">Olivia Steward</a></h5>
+            <a href="#" class="text-green">Add friend</a>
+          </div>
+        </div>
+        <div class="follow-user">
+          <img src="{% static 'images/users/user-15.jpg' %}" alt="" class="profile-photo-sm pull-left" />
+          <div>
+            <h5><a href="timeline.html">Sophia Page</a></h5>
+            <a href="#" class="text-green">Add friend</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer
+    ================================================= -->
+<footer id="footer">
+
+
+  <div class="copyright">
+    <p>Thunder Team © 2016. All rights reserved</p>
+  </div>
+</footer>
+
+
+
+<!-- Scripts
+    ================================================= -->
+ {% endblock icerik %}

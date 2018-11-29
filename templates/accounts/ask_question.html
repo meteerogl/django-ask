@@ -1,0 +1,83 @@
+{% extends 'accounts/wall.html' %} {% load static %} {% block icerik.super %}
+
+
+<div class="col-md-3 static">
+    <div class="chat-block" style="border:1px solid;">
+        <div class="tite">Chat online</div>
+        <ul class="online-users list-inline">
+            <li><a href="newsfeed-messages.html" title="Linda Lohan"><img src="{% static 'images/users/user-2.jpg' %}" alt="user"
+                        class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+            <li><a href="newsfeed-messages.html" title="Sophia Lee"><img src="{% static 'images/users/user-3.jpg' %}" alt="user"
+                        class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+            <li><a href="newsfeed-messages.html" title="John Doe"><img src="{% static 'images/users/user-4.jpg' %}" alt="user"
+                        class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+            <li><a href="newsfeed-messages.html" title="Alexis Clark"><img src="{% static 'images/users/user-5.jpg' %}" alt="user"
+                        class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+            <li><a href="newsfeed-messages.html" title="James Carter"><img src="{% static 'images/users/user-6.jpg' %}" alt="user"
+                        class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+            <li><a href="newsfeed-messages.html" title="Robert Cook"><img src="{% static 'images/users/user-7.jpg' %}" alt="user"
+                        class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+            <li><a href="newsfeed-messages.html" title="Richard Bell"><img src="{% static 'images/users/user-8.jpg' %}" alt="user"
+                        class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+            <li><a href="newsfeed-messages.html" title="Anna Young"><img src="{% static 'images/users/user-9.jpg' %}" alt="user"
+                        class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+            <li><a href="newsfeed-messages.html" title="Julia Cox"><img src="{% static 'images/users/user-10.jpg' %}" alt="user"
+                        class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-6">
+
+    <!-- Post Content
+    ================================================= -->
+
+    <script>
+        function countChar(val) {
+          var len = val.value.length;
+          if (len >= 500) {
+            val.value = val.value.substring(0, 500);
+          } else {
+            $('#charNum').text(20 - len);
+          }
+        };
+      </script>
+    <div class="post-content">
+        <div class="post-container">
+
+            <div class="row">
+                <form method="POST">
+                    {% csrf_token %}
+                    <!-- Post Create Box
+            ================================================= -->
+                    <div class="create-post">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-7">
+                                <div class="form-group">
+                                    <img src="{% static 'images/users/user-1.jpg' %}" alt="" class="profile-photo-md" />
+                                    {{ask_form.question}}
+                                    <br>
+                                    <div id="charNum"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-5 col-sm-5">
+                                <button class="btn btn-primary pull-right ">SOR</button>
+                            </div>
+                        </div>
+                    </div><!-- Post Create Box End-->
+                    <div class="col-xs-6">{{ask_form.answer_one}}
+                        </a></div>
+                    <div class="col-xs-6">{{ask_form.answer_two}}
+                        </a></div>
+                    <br><br><br>
+                    <div class="col-xs-6">{{ask_form.answer_three}}
+                        </a></div>
+                    <div class="col-xs-6" >{{ask_form.answer_true}}
+                        </a></div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock icerik.super %}
